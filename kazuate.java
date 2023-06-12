@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class kazuate {
     public static void main(String[] args) {
         //int secretNumber = (int) (Math.random() * 90) + 10; // 10から99までの乱数を生成
-        int secretNumber = 10;
+        int secretNumber = 50;
         int attemptsLeft = 5;
 
         Scanner scanner = new Scanner(System.in);
@@ -18,12 +18,18 @@ public class kazuate {
                 System.out.println("当たり！正解は " + secretNumber + " でした。");
                 break;
             } else {
-                if (Math.abs(guessedNumber - secretNumber) >= 20) {
-                    System.out.println("残念！大きすぎるか小さすぎます。");
-                } else if (guessedNumber > secretNumber) {
-                    System.out.println("残念！20以上小さい数です。");
+                if (guessedNumber > secretNumber ) {
+                    if(guessedNumber - secretNumber >= 20 ){
+                        System.out.println("残念！20以上小さい数です。");
+                    }else{
+                        System.out.println("残念！もうすこし小さい数です。");
+                    }
                 } else {
-                    System.out.println("残念！20以上大きい数です。");
+                    if(secretNumber - guessedNumber >= 20 ){
+                        System.out.println("残念！20以上大きい数です。");
+                    }else{
+                        System.out.println("残念！もうすこし大きい数です。");
+                    }
                 }
 
                 attemptsLeft--;
